@@ -20,7 +20,7 @@
           p-id="3491"
         ></path>
       </svg>
-      <div class="icon-describe">{{ $t('message.bug_data') }}</div>
+      <div class="icon-describe">{{ $t("message.bug_data") }}</div>
     </div>
     <div class="tools-icon">
       <svg
@@ -46,9 +46,9 @@
           p-id="3489"
         ></path>
       </svg>
-      <div class="icon-describe">{{ $t('message.tools') }}</div>
+      <div class="icon-describe">{{ $t("message.tools") }}</div>
     </div>
-    <div class="book-icon">
+    <div class="book-icon" @click="click_book()">
       <svg
         t="1685692469763"
         class="icon icon-path"
@@ -100,14 +100,14 @@
           p-id="4795"
         ></path>
       </svg>
-      <div class="icon-describe">{{ $t('message.note') }}</div>
+      <div class="icon-describe">{{ $t("message.note") }}</div>
     </div>
   </div>
 </template>
 <style scoped>
 .icon-box {
   display: flex;
-  margin-top:40px
+  margin-top: 40px;
 }
 .bug-icon {
   flex: 1;
@@ -118,12 +118,36 @@
 .book-icon {
   flex: 1;
 }
-.icon-describe{
-    margin-top:20px;
+.icon-describe {
+  margin-top: 20px;
 }
 </style>
 <script>
+import { ref, reactive, onMounted, getCurrentInstance, watch } from "vue";
+import { useI18n } from "vue-i18n";
+
 export default {
-  setup() {},
+  setup() {
+    const { proxy } = getCurrentInstance()
+    console.log(proxy,"proxy")
+    const {
+      appContext: {
+        config: { globalProperties },
+      },
+    } = getCurrentInstance();
+    const { t } = useI18n();
+    const click_book = () => {
+        proxy.$alert(t('message.book_tips'),t('message.tips'),{
+            confirmButtonText: t('message.book_tips_comfirm'),
+            callback:action=>{
+                console.log('callback')
+            }
+        })
+    };
+    return {
+      click_book,
+      proxy,
+    };
+  },
 };
 </script>

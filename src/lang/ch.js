@@ -12,6 +12,9 @@ export default{
         bug_data:'爬虫数据',
         tools:'小工具',
         note:'笔记',
+        tips:'提示',
+        book_tips:'什么？这模块还没弄出来？劝作者赶紧加急搞出来',
+        book_tips_comfirm:'别催别催，在做了',
         errMsg: {
             inputRequired: '请输入{cont}',
             selectRequired: '请选择{cont}'  
