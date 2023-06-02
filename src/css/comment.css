@@ -1,0 +1,39 @@
+.icon-path{
+    /* 与背景相同的填充色 */
+    fill:"#fff";
+    /* 描绘路径颜色 */
+    stroke:"#1875F0";
+    /* 描绘路径宽度 */
+    stroke-width:"3";
+}
+@keyframes icon-path-animation {
+  0% {
+    /* 路径之间的空白间隙长度 */
+    stroke-dasharray: 0 ,600px;
+    /* 空白间隙的偏移量 */
+    stroke-dashoffset: 5;
+    fill: #474646;
+  }
+
+  /* 40% {
+    stroke-dasharray: 4917;
+    stroke-dashoffset: 0;
+    fill: #fff;
+  }
+
+  60% {
+    stroke-dasharray: 4917;
+    stroke-dashoffset: 0;
+    fill: #1875F0;
+  } */
+
+  100% {
+    stroke-dasharray: 600px,0;
+    stroke-dashoffset: 0;
+    fill: #000;
+  }
+}
+.icon-path:hover{
+     /* 添加动画 */
+     animation: icon-path-animation 6s ;/*infinite 无限循环  ease-in 由慢到快 */
+}
